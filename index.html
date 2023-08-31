@@ -5,19 +5,20 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="css\styles.css">
+
 </head>
 <body>
     <div class="container">
         <div class="m-auto mt-5 mb-5">
-            <h1 class="text-dark text-center">CHAIR 1</h1>
+            <h1 class="text-dark text-center">SWANSON ARM CHAIR</h1>
         </div>
     </div>
     <div class="container">
-        <div class="d-flex flex-wrap justify-content-center column-gap-lg-5" style="height: 70%;">
-            <div class="col-12 col-lg-6" style="">
+        <div class="d-flex flex-wrap justify-content-center column-gap-md-5" style="height: 70%;">
+            <div class="col-12 col-md-6">
                 <div id="carouselExampleIndicators" class="carousel slide">
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
+                      <!-- <div class="carousel-item active">
                         <div style="background-image: url('./assets/img/a.webp');" class="d-block w-100"></div>
                       </div>
                       <div class="carousel-item">
@@ -25,7 +26,7 @@
                       </div>
                       <div class="carousel-item">
                         <div style="background-image: url('./assets/img/c.jpg');" class="d-block w-100"></div>
-                      </div>
+                      </div> -->
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -36,7 +37,7 @@
                       <span class="visually-hidden">Next</span>
                     </button>
                     <div class="carousel-indicators gap-3">
-                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+                        <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
                           <div style="background-image: url('./assets/img/a.webp');"></div>
                         </button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
@@ -44,11 +45,17 @@
                         </button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">
                           <div style="background-image: url('./assets/img/c.jpg');"></div>
-                        </button>
+                        </button> -->
                       </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-4">
+            <div class="d-none d-md-block bg-dark-subtle" style="width: 2px; height: 100%; content: '';"></div>
+            <div class="col-12 col-md-4">
+              <span>Color</span>
+              <div class="colorselector d-flex gap-2 ps-4 align-items-center">
+                <button class="bg-danger colorChange active" data-value="0" onclick="activeSelector(this)"></button>
+                <button class="bg-primary colorChange" data-value="1" onclick="activeSelector(this)"></button>
+              </div>
               <div>
                 <button class="desc-collapse-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">
                   Button with data-bs-target
@@ -60,22 +67,22 @@
                   </div>
                 </div>
               </div>
-              <div>
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-                  Button with data-bs-target
-                </button>
-                <div class="collapse" id="collapseExample2">
-                  <div class="card card-body">
-                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                  </div>
-                </div>
-              </div>
+              
             </div>
         </div>
     </div>
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    
+    <script type="module" src="javascript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>  
+    <script>
+      function activeSelector(e){
+        e.parentElement.getElementsByClassName("active")[0].classList.remove("active");
+        e.classList.toggle("active");
+      };
+      
+    </script>
 </body>
 </html>

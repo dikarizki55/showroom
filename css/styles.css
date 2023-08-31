@@ -52,3 +52,23 @@
     width: 60%;
     border-top: 2px solid var(--bs-secondary-color);
 }
+
+
+/* COLORSELECTOR */
+.colorselector{
+    height: 40px;
+}
+
+.colorselector button{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    transition: all 0.5s ease;
+}
+
+.colorselector button:hover, .colorselector .active{
+    width: 35px;
+    height: 35px;
+    transition: all 0.5s ease;
+}
