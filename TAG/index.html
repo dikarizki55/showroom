@@ -1,0 +1,226 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media print {
+            @page {
+                size: 330mm 210mm;
+                margin: 5mm;
+            }
+        }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .containerpage{
+            width: 320mm;
+            height: 200mm;
+            /* background-color: red; */
+            border:solid black;
+            border-width: 1px 0 0 1px;
+            box-sizing: border-box;
+            display: flex;
+            flex-wrap: wrap;
+            content: "";
+        }
+        .containertag{
+            width: 64mm;
+            height: 100mm;
+            border: solid black;
+            border-width: 0 1px 1px 0;
+            margin: -1px 0 0 -1px;
+            box-sizing: border-box;
+            position: relative;
+            padding-left: 5mm;
+        }
+
+        .plong{
+            width: 5mm;
+            height: 5mm;
+            border-radius: 50%;
+            content: "";
+            border: 1px solid black;
+            position: absolute;
+            right: 6mm;
+            top: 6mm;
+        }
+
+        .logo{
+            content: "";
+            border:solid grey;
+            border-width: 0 0 2px 0;
+            width: 32mm;
+            height: 12mm;
+            margin-top: 3mm;
+        }
+        .logoimg{
+            content: "";
+            border: 1px solid black;
+            box-sizing: border-box;
+            width: 20mm;
+            height: 7mm;
+        }
+        .logotext{
+            font-size: 5pt;
+            font-weight: 500;
+            margin-top: 1mm;
+        }
+
+        .title p{
+            font-weight: 700;
+            font-size: 23pt;
+            margin: 3mm 0 3mm 0;
+        }
+
+        .containertag table tr td:nth-child(1){
+            width: 34mm;
+        }
+        .containertag table tr td{
+            font-size: 10.7pt;
+        }
+        .containertag table .special td{
+            padding-top: 4mm;
+        }
+
+        .copyright{
+            margin-left: -5mm;
+            position: absolute;
+            font-size: 6.8pt;
+            text-align: center;
+            bottom: 3mm;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .qrcontainer{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            bottom: 0;
+            right: 0;
+            width: 18mm;
+            height: 21mm;
+            border: solid black;
+            border-width: 1px 0 0 1px;
+            border-radius: 5mm 0 0 0;
+            gap: 1mm;
+            padding-top: 1.5mm;
+            padding-left: 0.5mm;
+        }
+        .qrcode img{
+            width: 15mm;
+            height: 15mm;
+        }
+        .qrtext{
+            font-size: 7pt;
+        }
+
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/qrcode.js"></script>
+</head>
+<body>
+    
+        <div class="containertag">
+            <div class="plong"></div>
+            <div class="logo">
+                <div class="logoimg"></div>
+                <div class="logotext">PT. BUMI ROTAN JAYA</div>
+            </div>
+            <div class="title">
+                <p>Swanson Arm Chair</p>
+            </div>
+            <table>
+                <tr>
+                    <td>width</td>
+                    <td>:</td>
+                    <td>45cm</td>
+                </tr>
+                <tr>
+                    <td>depth</td>
+                    <td>:</td>
+                    <td>52cm</td>
+                </tr>
+                <tr>
+                    <td>height</td>
+                    <td>:</td>
+                    <td>80cm</td>
+                </tr>
+                <tr>
+                    <td>seatheight</td>
+                    <td>:</td>
+                    <td>44cm</td>
+                </tr>
+                <tr class="special">
+                    <td>loadibility 40'hc</td>
+                    <td>:</td>
+                    <td>100pcs</td>
+                </tr>
+            </table>
+            <div class="copyright"><div>©2023</div></div>
+            <div class="qrcontainer">
+                <div id="qrcode" class="qrcode"></div>
+                <div class="qrtext">SCAN HERE</div>
+            </div>
+        </div>
+        <div class="containertag">test</div>
+        <div class="containertag">test</div>
+        <div class="containertag">test</div>
+        <div class="containertag">test</div>
+        <div class="containertag">test</div>
+        <div class="containertag">test</div>
+        <div class="containertag">test</div>
+        <div class="containertag">test</div>
+        <div class="containertag">test</div>
+        <div class="containertag">test</div>
+        <div class="containertag">test</div>
+        <div class="containertag">test</div>
+
+    
+    <script type="text/javascript">
+        
+
+        // GET INSIDE DIV EVERY 10DIV CONTAINERTAG
+        const containertag = document.getElementsByClassName("containertag");
+        let lengthcontainertag = containertag.length;
+        console.log(lengthcontainertag)
+        let tagindex = 0;
+        let containertagTempParrent = ``;
+        for(let i=0; i<Math.ceil(containertag.length/10) ;i++ ){
+            let containertagTempChild = ``;
+            let looptotal = 0
+            if(lengthcontainertag>10){
+                looptotal = 10;
+            }else{
+                looptotal = lengthcontainertag;
+            }
+            for(let x=0; x<looptotal; x++){
+                const el = document.createElement('div');
+                el.appendChild(containertag[0]);
+                containertagTempChild += el.innerHTML;
+                console.log(containertag.length)
+                tagindex++
+                lengthcontainertag--
+            };
+            const el = document.createElement('div');
+            el.classList.add('containerpage');
+            el.innerHTML=containertagTempChild;
+            const box = document.getElementsByTagName('body')[0];
+            box.appendChild(el)
+        }
+
+
+        new QRCode(document.getElementById("qrcode"), "dikarizki55.github.io/showroom/");
+    </script>
+</body>
+</html>
